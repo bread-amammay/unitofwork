@@ -1,0 +1,4 @@
+local:
+  driver: postgres
+  open: user=postgres password=postgres dbname=demo host=localhost port=5432 sslmode=disable
+

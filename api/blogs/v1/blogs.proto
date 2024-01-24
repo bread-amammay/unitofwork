@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package api.blogs.v1;
+
+import "google/protobuf/timestamp.proto";
+
+service BlogService {
+  rpc CreateBlog(CreateBlogRequest) returns (CreateBlogResponse) {}
+}
+
+message CreateBlogRequest {
+  string title = 1;
+  string content = 2;
+}
+
+message CreateBlogResponse {
+  Blog blog = 1;
+}
+
+
+message Blog {
+  UUID id = 1;
+  Author author = 2;
+  string title = 3;
+  string content = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message Author {
+  UUID id = 1;
+  string user_name = 2;
+  string first_name = 3;
+  string last_name = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+message UUID {
+  bytes value = 1;
+}
